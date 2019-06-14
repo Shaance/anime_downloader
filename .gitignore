@@ -126,4 +126,4 @@ dmypy.json
 
 .gitignore
 .idea/
-scrapper/__pycache__/
+scraper/__pycache__/

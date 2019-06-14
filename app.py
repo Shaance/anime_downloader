@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from scrapper import show_scraper
+from scraper import show_scraper
 import download_manager
 
 app = Flask(__name__)

@@ -8,7 +8,7 @@ from typing import List
 from urllib.parse import unquote
 from urllib.request import urlopen, urlretrieve
 
-from scrapper.link_scraper import get_links
+from scraper.link_scraper import get_links
 from torrent_client import TorrentClient
 
 supported_res = {480, 720, 1080}
