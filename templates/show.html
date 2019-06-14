@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Anime scraper</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+<form class="form-inline" method="POST" action="{{ url_for('select_new_show') }}">
+    <div class="form-group">
+        <label>
+            <select name="show" class="selectpicker form-control">
+                <option value="{{ selected.name }}" selected>{{ selected.name }}</option>
+                {% for show in shows %}
+                <option value="{{ show.name }}">{{ show.name }}</option>
+                {% endfor %}
+            </select>
+        </label>
+        <button type="submit" class="btn btn-default">Go to show</button>
+    </div>
+</form>
+
+<br>
+
+<div class="card">
+    <img class="center" src="{{ selected.img }}" alt="No image available" style="width:50%">
+    <div class="container">
+        <h3><b>{{ selected.name }}</b></h3>
+        <p>{{ selected.desc }}</p>
+
+        <form method="post" enctype="multipart/form-data" action="{{ url_for('download_show') }}">
+            <h4>Choose resolution</h4>
+            <div><input type="radio" name="resolution" value="480"> 480p</div>
+            <div><input type="radio" name="resolution" value="720" checked> 720p</div>
+            <div><input type="radio" name="resolution" value="1080"> 1080p</div>
+            <h4>Output directory</h4>
+            <div><input type="text" name="output-directory" required="required"></div>
+            <br>
+            <button type="submit" class="btn btn-default">Download</button>
+        </form>
+        <br>
+    </div>
+
+</div>
+
+
+</body>
+</html>
