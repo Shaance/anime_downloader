@@ -16,8 +16,8 @@ def scrap_shows_url(domain: str) -> List[Show]:
     return result
 
 
-def scrap_show_img_desc(show: Show, domain: str, show_url: str) -> Show:
-    soup = __get_soup__(show_url)
+def scrap_show_img_desc(show: Show, domain: str) -> Show:
+    soup = __get_soup__(show.url)
     show.img = __scrap_show_image__(soup, domain)
     show.desc = __scrap_show_desc__(soup)
 

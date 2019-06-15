@@ -13,7 +13,7 @@ selected_show = shows[0]
 def render():
     # first time loading the show, have to scrap img and description
     if not selected_show.img:
-        show_scraper.scrap_show_img_desc(selected_show, domain, selected_show.url)
+        show_scraper.scrap_show_img_desc(selected_show, domain)
 
     return render_template('show.html', shows=shows, selected=selected_show)
 
