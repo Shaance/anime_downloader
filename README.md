@@ -1,5 +1,8 @@
 # anime_downloader
 
+## Disclaimer
+**ATTENTION: This is only a example of to use a python bind of torrent library in Python for educational purposes.            I am not responsible for your download of illegal content or without permission. Please respect the laws license permits of your country.**
+
 ## Requirements
 
 You need to have already installed Python3, [Chrome browser](https://www.google.com/chrome/) and [qbittorrent](https://www.qbittorrent.org).
