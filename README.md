@@ -8,7 +8,7 @@
 You need to have already installed [Python3](https://www.python.org/downloads/), [Chrome browser](https://www.google.com/chrome/) and [qbittorrent](https://www.qbittorrent.org).
 
 Make sure you also have installed [pip](https://pip.pypa.io/en/stable/installing/). Run the following commands at the project root:
-1. `python3 -m venv venv` if you're on macOS / linux or `py -m venv env` on windows to create a virtual environment
+1. `python3 -m venv venv` if you're on macOS / linux or `py -m venv venv` on windows to create a virtual environment
 2. `source venv/bin/activate` if you're on macOS / linux or `.\venv\Scripts\activate` on windows to activate the venv 
 3. `pip install -r requirements.txt` to install the dependencies
 
