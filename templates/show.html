@@ -10,14 +10,13 @@
 <form class="form-inline" method="POST" action="{{ url_for('select_new_show') }}">
     <div class="form-group">
         <label>
-            <select name="show" class="selectpicker form-control">
+            <select name="show" class="selectpicker form-control" onchange='this.form.submit()'>
                 <option value="{{ selected.name }}" selected>{{ selected.name }}</option>
                 {% for show in shows %}
                 <option value="{{ show.name }}">{{ show.name }}</option>
                 {% endfor %}
             </select>
         </label>
-        <button type="submit" class="btn btn-default">Go to show</button>
     </div>
 </form>
 
