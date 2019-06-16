@@ -24,9 +24,7 @@ Keep in mind that qbittorrent application **needs to be launched before the pyth
 
 You can now go to the project root directory and launch the following commands:
 
-```
-export FLASK_APP=app
-flask run
-```
+1. `export FLASK_APP=app` if you're on macOS / linux or `SET FLASK_APP=app` on windows 
+2. `flask run`
 
 The application will then be accessible from [127.0.0.1:5000](http://127.0.0.1:5000/), just choose your anime in the dropdown list, the resolution and the desired output directory and click on download.
