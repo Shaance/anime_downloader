@@ -7,7 +7,7 @@
 </head>
 
 <body>
-<form class="form-inline" method="POST" action="{{ url_for('select_new_show') }}">
+<form class="form-inline" method="POST" action="{{ url_for('render') }}">
     <div class="form-group">
         <label>
             <select name="show" class="selectpicker form-control" onchange='this.form.submit()'>
@@ -28,7 +28,7 @@
         <h3><b>{{ selected.name }}</b></h3>
         <p>{{ selected.desc }}</p>
 
-        <form method="post" enctype="multipart/form-data" action="{{ url_for('download_show') }}">
+        <form method="post" enctype="multipart/form-data" action="{{ url_for('render') }}">
             <h4>Choose resolution</h4>
             <div><input type="radio" name="resolution" value="480"> 480p</div>
             <div><input type="radio" name="resolution" value="720" checked> 720p</div>
