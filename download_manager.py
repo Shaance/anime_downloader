@@ -19,6 +19,7 @@ torrent_client = TorrentClient()
 def download_show(mode: str, url: str, res: int, output_directory: str, show_name: str) -> (bool, str):
     valid_mode = mode.lower() == 'magnet' or mode.lower() == 'torrent'
     valid_res = res in supported_res
+    output_directory = output_directory.strip()
     valid_output_path = os.access(output_directory, os.W_OK)
     if valid_mode and valid_res and valid_output_path:
         links = get_links(mode, url, res)
