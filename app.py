@@ -1,8 +1,10 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, flash
 from scraper import show_scraper
+from flask_bootstrap import Bootstrap
 import download_manager
 
 app = Flask(__name__)
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 domain = 'https://horriblesubs.info'
 shows = show_scraper.scrap_shows_url(domain)
 shows_map = {show.name: show for show in shows}
@@ -21,11 +23,9 @@ def render():
     output_dir = request.form.get('output-directory')
 
     if res and res.isdigit() and output_dir:
-        without_error, message = download_manager.download_show('magnet', selected_show.url,
-                                                                int(res), output_dir, selected_show.name)
-        if not without_error:
-            # should render another html file with error
-            print(message)
+        execution_message = download_manager.download_show('magnet', selected_show.url,
+                                                           int(res), output_dir, selected_show.name)
+        flash(execution_message)
 
     # first time loading the show, have to scrap img and description
     if not selected_show.img:
@@ -36,4 +36,5 @@ def render():
 
 if __name__ == '__main__':
     # app.run(debug=True)
+    Bootstrap(app)
     app.run()
