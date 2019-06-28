@@ -16,7 +16,7 @@ logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO)
 torrent_client = TorrentClient()
 
 
-def download_show(mode: str, url: str, res: int, output_directory: str, show_name: str) -> str:
+def download_show(mode: str, url: str, res: int, output_directory: str, show_name: str) -> (bool, str):
     valid_mode = mode.lower() == 'magnet' or mode.lower() == 'torrent'
     valid_res = res in supported_res
     output_directory = output_directory.strip()
@@ -31,11 +31,11 @@ def download_show(mode: str, url: str, res: int, output_directory: str, show_nam
                 __open_torrent_files__(final_directory)
             else:
                 torrent_client.start_magnets(links, final_directory)
-            return "Launched downloads in qbittorrent for {} at {}p".format(show_name, res)
+            return True, "Launched downloads in qbittorrent for {} at {}p".format(show_name, res)
 
         else:
             logging.info("Could not scrap any links :'(")
-            return "No link could be found for {} on {} mode in {}p resolution".format(url, mode, res)
+            return False, "No link could be found for {} on {} mode in {}p resolution".format(url, mode, res)
 
     else:
         if not valid_mode:
@@ -43,10 +43,11 @@ def download_show(mode: str, url: str, res: int, output_directory: str, show_nam
         elif not valid_res:
             error_msg = "Resolution not supported. Supported res: {}p.".format(supported_res)
         else:
-            error_msg = "{} does not exist or do not have the write permission.".format(output_directory)
+            error_msg = "{} does not exist or you do not have the write permission for this directory." \
+                .format(output_directory)
 
         logging.error(error_msg)
-        return error_msg
+        return False, error_msg
 
 
 def __create_output_directory__(directory: str, show_name: str) -> str:

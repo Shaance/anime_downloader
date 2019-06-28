@@ -23,9 +23,13 @@ def render():
     output_dir = request.form.get('output-directory')
 
     if res and res.isdigit() and output_dir:
-        execution_message = download_manager.download_show('magnet', selected_show.url,
-                                                           int(res), output_dir, selected_show.name)
-        flash(execution_message)
+        success, execution_message = download_manager.download_show('magnet', selected_show.url,
+                                                                    int(res), output_dir, selected_show.name)
+
+        if success:
+            flash(execution_message, 'success')
+        else:
+            flash(execution_message, 'danger')
 
     # first time loading the show, have to scrap img and description
     if not selected_show.img:
