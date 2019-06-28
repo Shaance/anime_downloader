@@ -6,6 +6,7 @@ from typing import List
 
 from bs4 import BeautifulSoup, Tag
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 
 logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO)
 
@@ -42,8 +43,9 @@ def __expand_episode_list__(browser) -> None:
 def __get_page_source__(url: str):
     logging.info("Opening Chrome with the following URL %s.", url)
     # need to fire up a browser otherwise the links will not load with a simple urllib.open_url command
-
-    browser = webdriver.Chrome(__get_chrome_driver__())
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")
+    browser = webdriver.Chrome(__get_chrome_driver__(), chrome_options=chrome_options)
     browser.get(url)
     __expand_episode_list__(browser)
 

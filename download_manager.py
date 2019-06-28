@@ -73,7 +73,3 @@ def __open_torrent_files__(torrent_directory: str) -> None:
 
     files.sort()
     torrent_client.start_torrents(files, torrent_directory)
-    # while len(torrent_client.get_active_downloads()) != 0:
-    #     logging.info("Still downloading torrents.")
-    #     logging.info(torrent_client.get_torrent_status())
-    #     logging.info(torrent_client.get_global_transfer_info())
