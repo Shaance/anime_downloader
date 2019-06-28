@@ -60,4 +60,4 @@ def __get_chrome_driver__():
     elif curr_platform == 'Linux':
         return os.path.join(os.getcwd(), drivers_directory, 'chromedriver_linux')
     else:
-        os.path.join(os.getcwd(), drivers_directory, 'chromedriver.exe')
+        return os.path.join(os.getcwd(), drivers_directory, 'chromedriver.exe')
