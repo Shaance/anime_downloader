@@ -13,7 +13,7 @@
             <select name="show" class="selectpicker form-control" onchange='this.form.submit()'>
                 <option value="{{ selected.name }}" selected>{{ selected.name }}</option>
                 {% for show in shows %}
-                <option value="{{ show.name }}">{{ show.name }}</option>
+                    <option value="{{ show.name }}">{{ show.name }}</option>
                 {% endfor %}
             </select>
         </label>
@@ -30,9 +30,21 @@
 
         <form method="post" enctype="multipart/form-data" action="{{ url_for('render') }}">
             <h4>Choose resolution</h4>
-            <div><input type="radio" name="resolution" value="480"> 480p</div>
-            <div><input type="radio" name="resolution" value="720" checked> 720p</div>
-            <div><input type="radio" name="resolution" value="1080"> 1080p</div>
+            <div>
+                <label>
+                    <input type="radio" name="resolution" value="480"> 480p
+                </label>
+            </div>
+            <div>
+                <label>
+                    <input type="radio" name="resolution" value="720" checked> 720p
+                </label>
+            </div>
+            <div>
+                <label>
+                    <input type="radio" name="resolution" value="1080"> 1080p
+                </label>
+            </div>
             <h4>Output directory</h4>
             <div><input type="text" name="output-directory" required="required"></div>
             <br>
