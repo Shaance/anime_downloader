@@ -40,5 +40,5 @@ def render():
 
 if __name__ == '__main__':
     # app.run(debug=True)
-    Bootstrap(app)
+    bootstrap = Bootstrap(app)
     app.run()
