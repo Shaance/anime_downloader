@@ -5,7 +5,7 @@
 
 ## Requirements
 
-You need to have already installed [Python3](https://www.python.org/downloads/), [Chrome browser v75+](https://www.google.com/chrome/) and [qbittorrent](https://www.qbittorrent.org) (only v3.2.0-v4.0.4 version are supported for the moment).
+You need to have already installed [Python3](https://www.python.org/downloads/), [Chrome browser v79+](https://www.google.com/chrome/) and [qbittorrent](https://www.qbittorrent.org) (support for 4.1+ for release >0.1.0, use 0.1.0 for v3.2.0-v4.0.4 versions support).
 
 Make sure you also have installed [pip](https://pip.pypa.io/en/stable/installing/). Run the following commands at the project root:
 1. `python3 -m venv venv` if you're on macOS / linux or `py -m venv venv` on windows to create a virtual environment
@@ -22,9 +22,6 @@ First, you have to change the preferences / settings in qbittorrent. In the WebU
 
 Keep in mind that qbittorrent application **needs to be launched before the python application**.
 
-You can now go to the project root directory and launch the following commands:
-
-1. `export FLASK_APP=app` if you're on macOS / linux or `SET FLASK_APP=app` on windows 
-2. `flask run`
+You can now go to the project root directory and launch the following command `python3 app.py`.
 
 The application will then be accessible from [127.0.0.1:5000](http://127.0.0.1:5000/), just choose your anime in the dropdown list, the resolution and the desired output directory and click on download.
