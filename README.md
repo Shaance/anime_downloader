@@ -3,7 +3,7 @@
 ## Disclaimer
 **ATTENTION: This is only a example of to use a python bind of torrent library in Python for educational purposes.            I am not responsible for your download of illegal content or without permission. Please respect the laws license permits of your country.**
 
-** RIP to the project as HorribleSubs site has been closed **
+**RIP to the project as HorribleSubs site has been closed**
 
 ## Requirements
 
